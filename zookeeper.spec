@@ -4,23 +4,21 @@
 
 %define _noarch_libdir /usr/lib 
 
-%define rel_ver 3.3.3
+%define rel_ver 3.3.6
 
 Summary: High-performance coordination service for distributed applications.
 Name: zookeeper
 Version: %{rel_ver}
-Release: 4
+Release: 1
 License: Apache License v2.0
 Group: Applications/Databases
 URL: http://hadoop.apache.org/zookeeper/
-Source0: http://www.apache.org/dyn/closer.cgi/hadoop/zookeeper/zookeeper-%{rel_ver}/zookeeper-%{rel_ver}.tar.gz
+Source0: http://apache.mirrors.spacedump.net/zookeeper/zookeeper-%{rel_ver}/zookeeper-%{rel_ver}.tar.gz
 Source1: zookeeper.init
 Source2: zookeeper.logrotate
 Source3: zoo.cfg
 Source4: log4j.properties
 Source5: java.env
-Patch0: pyzk-mem-leak-fix.diff
-Patch1: ZOOKEEPER-732.patch
 BuildRoot: %{_tmppath}/%{name}-%{rel_ver}-%{release}-root
 BuildRequires: python-devel,gcc
 Requires: logrotate, java-1.6.0-openjdk
@@ -47,8 +45,6 @@ implementing coordination services from scratch.
 
 %prep
 %setup -q -n zookeeper-%{rel_ver}
-%patch0 -p0
-%patch1 -p0
 
 %build
 pushd src/c
@@ -197,5 +193,6 @@ if [ "$1" -ge "1" ] ; then
 fi
 
 %changelog
+* Mon Mar 10 2013 Karl Böhlmark <karl.bohlmark@gmail.com>  3.3.4-1
 * Fri Nov 12 2010  Daniel Lundin <dln@eintr.org> - 3.3.2-2
 - Update to 3.3.2
