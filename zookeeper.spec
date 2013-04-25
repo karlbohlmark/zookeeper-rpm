@@ -4,7 +4,7 @@
 
 %define _noarch_libdir /usr/lib 
 
-%define rel_ver 3.3.6
+%define rel_ver 3.4.5
 
 Summary: High-performance coordination service for distributed applications.
 Name: zookeeper
@@ -193,6 +193,7 @@ if [ "$1" -ge "1" ] ; then
 fi
 
 %changelog
+* Thu Apr 25 2013 Karl Böhlmark <karl.bohlmark@gmail.com>  3.4.5-1
 * Mon Mar 10 2013 Karl Böhlmark <karl.bohlmark@gmail.com>  3.3.4-1
 * Fri Nov 12 2010  Daniel Lundin <dln@eintr.org> - 3.3.2-2
 - Update to 3.3.2
